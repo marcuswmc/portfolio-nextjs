@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from 'next/font/google'
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import PageTransition from "@/components/pageTransition";
+import StairTransition from "@/components/stairTransition";
 
 const jetBrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['100','200','300', '400', '500', '600', '700', '800' ],
-  variable: '--font-jetbrains-mono',
-
-})
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jetbrains-mono",
+});
 
 export const metadata: Metadata = {
   title: "Marcus Oliveira",
@@ -22,11 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${jetBrainsMono.variable} antialiased`}
-      >
+      <body className={`${jetBrainsMono.variable} antialiased`}>
         <Header />
-        {children}
+        <StairTransition />
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
