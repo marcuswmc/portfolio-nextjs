@@ -2,18 +2,19 @@ import Social from "@/components/social";
 import { Button } from "../components/ui/button";
 import { FiDownload } from "react-icons/fi";
 import Photo from "@/components/heroPhoto";
+import Stats from "@/components/stats";
 
 export default function Home() {
   return (
     <section className="h-full">
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row lg:flex-row items-center justify-between xl:pt-8 xl:pb-24">
+        <div className="flex flex-col xl:flex-row lg:flex-row items-center justify-between xl:pt-8 xl:pb-8">
           {/* text */}
           <div className="text-center xl:text-left lg:text-left order-2 xl:order-none lg:order-none">
             <span className="text-xl">Full Stack Web Developer</span>
             <h1 className="h1 mb-6">
-              Hello I&apos;m <br />{" "}
-              <span className="text-accent">Marcus Vinicius</span>
+              Hello, <br />{" "}
+              I&apos;m <span className="text-accent">Marcus</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
               I&apos;m full stack web developer with a passion for building
@@ -32,11 +33,12 @@ export default function Home() {
           </div>
 
           {/* photo */}
-          <div className="order-1 xl:order-none lg:order-none xl:mb-0 lg:mb-0">
+          <div className="order-1 xl:order-none lg:order-none mb-8 xl:mb-0 lg:mb-0">
            <Photo />
           </div>
         </div>
       </div>
+      <Stats />
     </section>
   );
 }
