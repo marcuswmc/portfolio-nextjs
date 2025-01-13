@@ -3,6 +3,9 @@ import { Button } from "../components/ui/button";
 import { FiDownload } from "react-icons/fi";
 import Photo from "@/components/heroPhoto";
 import Stats from "@/components/stats";
+import Link from "next/link";
+
+const cvPdfUrl = "/marcus-vinicius-cv-en.pdf";
 
 export default function Home() {
   return (
@@ -16,19 +19,21 @@ export default function Home() {
               Hello, <br /> I&apos;m <span className="text-accent">Marcus</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
-              I&apos;m full stack web developer with a passion for building
-              scalable and efficient web applications.
+              I create modern interfaces and scalable solutions with a focus on
+              the React ecosystem and UX/UI.
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row lg:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
-              >
-                <span>Download CV</span>
-                <FiDownload className="text-xl" />
-              </Button>
+              <Link href={cvPdfUrl}>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="uppercase flex items-center gap-2"
+                >
+                  <span>Download CV</span>
+                  <FiDownload className="text-xl" />
+                </Button>
+              </Link>
               <div className="mb-8 xl:mb-0 lg:mb-0">
                 <Social
                   containerStyles="flex gap-6"
