@@ -18,69 +18,9 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/workSliderBtns";
+import { ProjectsData } from "../../data/projectsData";
 
-const projects = [
-  {
-    num: "01",
-    category: "frontend",
-    title: "Project 1",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, atque molestiae? Aliquam minima, nihil modi",
-    stack: [
-      {
-        name: "Html 5",
-      },
-      {
-        name: "Css 3",
-      },
-      {
-        name: "Javascript",
-      },
-    ],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: "02",
-    category: "fullstack",
-    title: "Project 2",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, atque molestiae? Aliquam minima, nihil modi",
-    stack: [
-      {
-        name: "Html 5",
-      },
-      {
-        name: "Css 3",
-      },
-      {
-        name: "Javascript",
-      },
-    ],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: "03",
-    category: "frontend",
-    title: "Project 1",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, atque molestiae? Aliquam minima, nihil modi",
-    stack: [
-      {
-        name: "Next.js",
-      },
-      {
-        name: "Tailwind.css",
-      },
-    ],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
-  },
-];
+const projects = ProjectsData;
 
 type SwiperProps = {
   activeIndex: number;
@@ -112,8 +52,12 @@ export default function Work() {
                 {project.num}
               </div>
               {/* project category */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+              <span className="text-[14px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
                 {project.category} project
+              </span>
+              {/* project title */}
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                {project.title}
               </h2>
               {/* project description */}
               <p className="text-white/60">{project.description}</p>
