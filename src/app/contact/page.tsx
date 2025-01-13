@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { z } from "zod";
 import { toast } from "sonner";
-
 import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Loader2 } from "lucide-react";
 
 const contactSchema = z.object({
   firstname: z.string().min(2, "First name must be at least 2 characters"),
@@ -55,6 +55,7 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleInputChange(
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -73,25 +74,28 @@ export default function Contact() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    
+    if (isSubmitting) return;
 
     try {
+      setIsSubmitting(true);
       const validatedData = contactSchema.parse(formData);
-      const response = fetch("/api/send", {
+      
+      const response = await fetch("/api/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(validatedData),
+      });
 
-    
-      })
-
-      if(!response){
-        throw new Error('failed to send message')
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Failed to send email:", errorData.error);
+        throw new Error(errorData.error || "Failed to send message");
       }
 
       setErrors({});
-
       setFormData({
         firstname: "",
         lastname: "",
@@ -113,7 +117,10 @@ export default function Contact() {
         toast.error("Please check the form for errors");
       } else {
         console.error("An unexpected error occurred:", err);
+        toast.error("Failed to send message. Please try again later.");
       }
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -136,9 +143,9 @@ export default function Contact() {
             >
               <h3 className="text-4xl text-accent">Let&apos;s Talk</h3>
               <p className="text-white/60">
-              Use the form below or the details on the right to get in touch.
+                Use the form below or the details on the right to get in touch.
               </p>
-              {/* input */}
+              {/* inputs */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-1">
                   <Input
@@ -148,6 +155,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     placeholder="Firstname"
                     className={errors.firstname ? "border-red-500" : ""}
+                    disabled={isSubmitting}
                   />
                   {errors.firstname && (
                     <span className="text-red-500 text-sm">
@@ -164,6 +172,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     placeholder="Lastname"
                     className={errors.lastname ? "border-red-500" : ""}
+                    disabled={isSubmitting}
                   />
                   {errors.lastname && (
                     <span className="text-red-500 text-sm">
@@ -180,6 +189,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     placeholder="Email address"
                     className={errors.email ? "border-red-500" : ""}
+                    disabled={isSubmitting}
                   />
                   {errors.email && (
                     <span className="text-red-500 text-sm">{errors.email}</span>
@@ -194,6 +204,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     placeholder="Phone"
                     className={errors.phone ? "border-red-500" : ""}
+                    disabled={isSubmitting}
                   />
                   {errors.phone && (
                     <span className="text-red-500 text-sm">{errors.phone}</span>
@@ -210,14 +221,27 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Type your message here."
+                  disabled={isSubmitting}
                 />
                 {errors.message && (
                   <span className="text-red-500 text-sm">{errors.message}</span>
                 )}
               </div>
               {/* button */}
-              <Button type="submit" size="md" className="max-w-40">
-                Send message
+              <Button 
+                type="submit" 
+                size="md" 
+                className="max-w-40"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  'Send message'
+                )}
               </Button>
             </form>
           </div>
