@@ -1,7 +1,7 @@
 "use client";
 
 import { FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiMongodb } from "react-icons/si";
+import { SiTypescript, SiNextdotjs, SiMongodb } from "react-icons/si";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -19,7 +19,7 @@ import { motion } from "framer-motion";
 const about = {
   title: "About me",
   description:
-    "I am a full-stack developer with a passion for building scalable and efficient applications.",
+    "I’m a full-stack developer passionate about crafting scalable, efficient applications with a focus on user-centric design and modern technologies.",
   info: [
     {
       fieldName: "Name",
@@ -57,37 +57,37 @@ const experience = {
   icons: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "I have worked on various projects, from web development to data analysis.",
+    "Full Stack Web Developer with international experience in Brazil and Portugal.",
   items: [
     {
       company: "Innovagency",
-      position: "Creative Developer",
+      position: "Creative Developer - Frontend",
       duration: "JUL 2023 - Present",
     },
     {
       company: "Anca Design Studio",
       position: "full Stack Developer",
-      duration: "2021 - 2023",
+      duration: "2022 - 2023",
     },
     {
       company: "Growth Culture Lab",
-      position: "full Stack Developer",
+      position: "React Developer",
       duration: "2020 - 2021",
     },
     {
-      company: "byBnD Startup",
+      company: "byBnD - Flutter Brand",
       position: "UX/UI Designer",
       duration: "2018 - 2020",
     },
     {
-      company: "byBnD Startup",
-      position: "UX/UI Designer",
-      duration: "2018 - 2020",
+      company: "Essencis S.A",
+      position: "Web Design",
+      duration: "2016 - 2018",
     },
     {
-      company: "byBnD Startup",
-      position: "UX/UI Designer",
-      duration: "2018 - 2020",
+      company: "Impacto Eletronics",
+      position: "Web Designer",
+      duration: "2014 - 2016",
     },
   ],
 };
@@ -97,22 +97,27 @@ const education = {
   icons: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "I have worked on various projects, from web development to data analysis.",
+   "I have pursued a diverse range of courses, from software analysis and development to full stack web development, honing skills across various disciplines.",
   items: [
+    {
+      institution: "Faculdade FIAP",
+      degree: "Software analysis and development",
+      end: "2026",
+    },
     {
       institution: "EDIT School",
       degree: "Full Stack Web Development",
-      duration: "2024",
+      end: "2024",
     },
     {
       institution: "Rocketseat",
       degree: "Certified Web Development",
-      duration: "2020",
+      end: "2020",
     },
     {
       institution: "Fapcom - São Paulo",
       degree: "Advertising and Social Communication",
-      duration: "2018",
+      end: "2018",
     },
   ],
 };
@@ -121,19 +126,15 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "I have worked on various projects, from web development to data analysis.",
+    "I excel in full stack development, delivering dynamic applications using modern frameworks like React and Next.js. From crafting responsive layouts with HTML5, CSS3, and TypeScript to building efficient back-end systems with Node.js and MongoDB, I create seamless, scalable solutions tailored to user needs.",
   skillList: [
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaCss3 />,
-      name: "css 3",
-    },
     {
       icon: <FaJs />,
       name: "javascript",
+    },
+    {
+      icon: <SiTypescript />,
+      name: "Typescript",
     },
     {
       icon: <FaReact />,
@@ -144,16 +145,20 @@ const skills = {
       name: "next.js",
     },
     {
-      icon: <SiTailwindcss />,
-      name: "tailwind.css",
-    },
-    {
       icon: <FaNodeJs />,
       name: "node.js",
     },
     {
       icon: <SiMongodb />,
       name: "mongodb",
+    },
+    {
+      icon: <FaHtml5 />,
+      name: "html 5",
+    },
+    {
+      icon: <FaCss3 />,
+      name: "css 3",
     },
   ],
 };
@@ -231,7 +236,7 @@ export default function Resume() {
                           key={index}
                           className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
                         >
-                          <span className="text-accent">{item.duration}</span>
+                          <span className="text-accent">{item.end}</span>
                           <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
                             {item.degree}
                           </h3>
