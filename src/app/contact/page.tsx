@@ -76,7 +76,19 @@ export default function Contact() {
 
     try {
       const validatedData = contactSchema.parse(formData);
-      console.log("Validated data:", validatedData);
+      const response = fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(validatedData),
+
+    
+      })
+
+      if(!response){
+        throw new Error('failed to send message')
+      }
 
       setErrors({});
 
@@ -122,10 +134,9 @@ export default function Contact() {
               className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
               onSubmit={handleSubmit}
             >
-              <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
+              <h3 className="text-4xl text-accent">Let&apos;s Talk</h3>
               <p className="text-white/60">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Similique iusto enim minus.
+              Use the form below or the details on the right to get in touch.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
