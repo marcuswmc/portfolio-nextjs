@@ -6,6 +6,8 @@ import PageTransition from "@/components/pageTransition";
 import StairTransition from "@/components/stairTransition";
 import { Toaster } from 'sonner'
 
+import { Analytics } from "@vercel/analytics/react"
+
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -27,8 +29,10 @@ export default function RootLayout({
       <body className={`${jetBrainsMono.variable} antialiased`}>
         <Header />
         <StairTransition />
-        <PageTransition>{children}
+        <PageTransition>
+          {children}
           <Toaster />
+          <Analytics />
         </PageTransition>
       </body>
     </html>
