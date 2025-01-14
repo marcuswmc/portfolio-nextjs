@@ -14,7 +14,7 @@ export const EmailTemplate = ({
   message,
 }: EmailTemplateProps) => (
   <div>
-    <h1>Recebeu um novo contato de {firstName}!</h1>
+    <h3>Recebeu um novo contato de {firstName}!</h3>
     <p>
       Nome: {firstName} {lastname}
     </p>
