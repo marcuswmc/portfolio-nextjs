@@ -6,7 +6,7 @@ import PageTransition from "@/components/pageTransition";
 import StairTransition from "@/components/stairTransition";
 import { Toaster } from 'sonner'
 
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
