@@ -38,7 +38,31 @@ export const ProjectsData: Project[] = [
   {
     num: "02",
     category: "fullstack",
-    title: "Dejongh Website",
+    title: "Sattis Studio",
+    description:
+      "A responsive website and appointment scheduling system for a hair salon, built with Next.js.",
+    stack: [
+      {
+        name: "Next.js",
+      },
+      {
+        name: "React",
+      },
+      {
+        name: "Typescript",
+      },
+      {
+        name: "Tailwind.css",
+      },
+    ],
+    image: "/assets/work/thumb5.png",
+    live: "https://sattis.me/",
+    github: "https://github.com/marcuswmc/sattis-nextjs-website",
+  },
+  {
+    num: "03",
+    category: "fullstack",
+    title: "Dejongh Drones",
     description:
       "A responsive React website for a drone services company.",
     stack: [
@@ -57,9 +81,9 @@ export const ProjectsData: Project[] = [
     github: "https://github.com/Growth-Culture/djongh-drones",
   },
   {
-    num: "03",
+    num: "04",
     category: "frontend",
-    title: "Devstore Nextjs",
+    title: "Devstore Shop",
     description:
       "DevStore is a comprehensive e-commerce platform built with Next.js 15 and TypeScript, featuring robust end-to-end testing using Cypress.",
     stack: [
@@ -78,7 +102,7 @@ export const ProjectsData: Project[] = [
     github: "",
   },
   {
-    num: "04",
+    num: "05",
     category: "fullStack",
     title: "List.In",
     description:
