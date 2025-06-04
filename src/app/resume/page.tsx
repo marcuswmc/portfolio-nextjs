@@ -100,14 +100,14 @@ const education = {
    "I have pursued a diverse range of courses, from software analysis and development to full stack web development, honing skills across various disciplines.",
   items: [
     {
-      institution: "Faculdade FIAP",
-      degree: "Software analysis and development",
-      end: "2026",
+      institution: "DesignCourse",
+      degree: "Advanced Frontend - GreenSock, Three.js",
+      end: "2024",
     },
     {
       institution: "EDIT School",
       degree: "Full Stack Web Development",
-      end: "2024",
+      end: "2023",
     },
     {
       institution: "Rocketseat",

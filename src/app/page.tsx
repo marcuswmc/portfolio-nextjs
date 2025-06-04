@@ -1,11 +1,11 @@
 import Social from "@/components/social";
-import { Button } from "../components/ui/button";
-import { FiDownload } from "react-icons/fi";
+// import { Button } from "../components/ui/button";
+// import { FiDownload } from "react-icons/fi";
 import Photo from "@/components/heroPhoto";
 import Stats from "@/components/stats";
-import Link from "next/link";
+// import Link from "next/link";
 
-const cvPdfUrl = "/marcus-vinicius-cv-en.pdf";
+// const cvPdfUrl = "/marcus-vinicius-cv-en.pdf";
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
             </p>
             {/* btn and socials */}
             <div className="flex flex-col xl:flex-row lg:flex-row items-center gap-8">
-              <Link href={cvPdfUrl}>
+              {/* <Link href={cvPdfUrl}>
                 <Button
                   variant="outline"
                   size="lg"
@@ -33,7 +33,7 @@ export default function Home() {
                   <span>Download CV</span>
                   <FiDownload className="text-xl" />
                 </Button>
-              </Link>
+              </Link> */}
               <div className="mb-8 xl:mb-0 lg:mb-0">
                 <Social
                   containerStyles="flex gap-6"
